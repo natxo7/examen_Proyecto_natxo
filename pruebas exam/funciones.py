@@ -8,8 +8,11 @@ def encontrar_menores(diccionario,letra):
     Returns:
       resultado: ej. ['AUNQUE','ABINAR']
     """
+    lista=["A","B","C","D","E","F","G","H"]
     for clave in diccionario:
         for palabra in diccionario[clave]:
+          for i in lista:
+            if(letra==lista[i]):
             if palabra[0] < letra:
                 resultado=[]
                 resultado.append(palabra)
@@ -25,14 +28,15 @@ def add_client(clients_list,nif,name,address,phone,email):
       phone
       email
     """
-    clients_list= {
+    #el error estaba el crear el diciionario
+    #el nif no se ponia asi
+    clients_list[nif] = {
         nif: {'name': name,
               'address': address,
               'phone': phone,
               'email': email
         }
     }
-
 def repartir_cartas(cartas_iniciales,repeticiones):
     """Dada una baraja de cartas iniciales y un nÃºmero de repeticiones, esta funciÃ³n selecciona 5 cartas aleatorias de esta baraja y las mete en un diccionario llamado combinaciones. El proceso se repite tantas veces como repeticiones se indiquen.
     Args:
@@ -48,6 +52,10 @@ def repartir_cartas(cartas_iniciales,repeticiones):
         for j in range(0,5):
             carta=random.choice(cartas_aleatorias)
             combinaciones["repeticion"+str(i)].append(carta)
-            cartas_aleatorias.remove(carta)
+            #cartas_aleatorias.remove(carta)
 
     return combinaciones
+
+
+
+
