@@ -2,7 +2,7 @@ import random
 
 
 def choose_secret():
-    f = open("palabras_reduced.txt", mode="rt", encoding="utf-8")
+    f = open("palabras_extended.txt", mode="rt", encoding="utf-8")
     
     """Dado un nombre de fichero, esta funciÃ³n devuelve una palabra aleatoria de este fichero transformada a mayÃºsculas.
     Args:
@@ -11,16 +11,18 @@ def choose_secret():
       secret: Palabra elegida aleatoriamente del fichero transformada a mayÃºsculas. Ej. "CREMA"
     """
     lista=[]
-    texto=f.read()
     
-   
-    texto_en_mayusculas=texto.upper()
-    lista=texto_en_mayusculas
+
+    
+    for line in f:
+        line = line.upper()
+        line = line.split()
+        lista.extend(line)
+    f.close()
+
     a=random.choice(lista)
-    print(a)
     
-    return random.choice(lista)
-    
+    return a
     
 
 
@@ -29,7 +31,9 @@ def choose_secret():
 
 
     
-def compare_words():
+def compare_words(word,secret):
+    
+
     """Dadas dos palabras en mayÃºsculas (word y secret), esta funciÃ³n calcula las posiciones de las letras de word que aparecen en la misma posiciÃ³n en secret, y las posiciones de las letras de word que aparecen en secret pero en una posiciÃ³n distinta.
     Args:
       word: Una palabra. Ej. "CAMPO"
@@ -39,6 +43,7 @@ def compare_words():
       same_letter: Lista de posiciones de word cuyas letras estÃ¡n en secret pero en posiciones distintas. En el caso anterior: [1,2]
     """
 
+ 
 def print_word():
     """Dada una palabra, una lista same_position y otra lista same_letter, esta funciÃ³n crearÃ¡ un string donde aparezcan en mayÃºsculas las letras de la palabra que ocupen las posiciones de same_position, en minÃºsculas las letras de la palabra que ocupen las posiciones de same_letter y un guiÃ³n (-) en el resto de posiciones
     Args:
