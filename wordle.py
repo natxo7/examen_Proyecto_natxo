@@ -1,7 +1,8 @@
 import random
-f = open("palabras_reduced.txt", mode="rt", encoding="utf-8")
-def choose_secret(fichero):
-    f = open(fichero, mode="rt", encoding="utf-8")
+
+
+def choose_secret():
+    f = open("palabras_reduced.txt", mode="rt", encoding="utf-8")
     
     """Dado un nombre de fichero, esta funciÃ³n devuelve una palabra aleatoria de este fichero transformada a mayÃºsculas.
     Args:
@@ -9,8 +10,23 @@ def choose_secret(fichero):
     Returns:
       secret: Palabra elegida aleatoriamente del fichero transformada a mayÃºsculas. Ej. "CREMA"
     """
+    lista=[]
+    texto=f.read()
+    
+   
+    texto_en_mayusculas=texto.upper()
+    lista=texto_en_mayusculas
+    a=random.choice(lista)
+    print(a)
+    
+    return random.choice(lista)
+    
+    
 
-    texto=random.choice(fichero.read())
+
+
+
+
 
     
 def compare_words():
@@ -52,7 +68,7 @@ def check_valid_word():
 
 
 if __name__ == "__main__":
-    secret=choose_secret(palabras_reduced.txt)
+    secret=choose_secret()
     print("Palabra a adivinar: "+secret)#Debug: esto es para que sepas la palabra que debes adivinar
     for repeticiones in range(0,6):
         word = input("Introduce una nueva palabra: ")
