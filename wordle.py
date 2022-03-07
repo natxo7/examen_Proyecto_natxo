@@ -42,8 +42,21 @@ def compare_words(word,secret):
       same_position: Lista de posiciones de word cuyas letras coinciden en la misma posiciÃ³n en secret. En el caso anterior: [0]
       same_letter: Lista de posiciones de word cuyas letras estÃ¡n en secret pero en posiciones distintas. En el caso anterior: [1,2]
     """
+    same_position=[]
+    
+    for i in word:
+        print("AQUi")
+        print(i)
+        for b in secret:
+            if i == b and word.index(i) == word.index(i):
+                same_position.append(secret.index(b))
+    print(same_position)
 
+                
+                
+    
  
+                
 def print_word():
     """Dada una palabra, una lista same_position y otra lista same_letter, esta funciÃ³n crearÃ¡ un string donde aparezcan en mayÃºsculas las letras de la palabra que ocupen las posiciones de same_position, en minÃºsculas las letras de la palabra que ocupen las posiciones de same_letter y un guiÃ³n (-) en el resto de posiciones
     Args:
@@ -77,7 +90,7 @@ if __name__ == "__main__":
     print("Palabra a adivinar: "+secret)#Debug: esto es para que sepas la palabra que debes adivinar
     for repeticiones in range(0,6):
         word = input("Introduce una nueva palabra: ")
-        same_position, same_letter = compare_words()
+        same_position, same_letter = compare_words(word,secret)
         resultado=print_word()
         print(resultado)
         if word == secret:
