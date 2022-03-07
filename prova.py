@@ -1,15 +1,18 @@
-def media(lista_numeros): 
-    """Calcula la media de una lista
-    Args: lista_numeros (list[])
-    Returns: float
-    """
-    suma = 0
-    for n in lista_numeros:
-        suma = suma + n
-    return suma / len(lista_numeros)
+def cambiarClavesDic( dic, list ):
 
-#------------main-------------
-num = [1, 5, 3, 2]
+    num = 0
 
-resultado = media(num)
-print("El resultado es "+str(resultado))
+    for i in dic:
+        print(dic[i])
+        dic[list(num)] = dic[i].pop()
+        num += 1
+
+
+dic = { 'usuario1': 23, 'usuario7': 10, 'usuario2' : 4 }
+nombres = ["Pepe", "alfonso", "ana", "pedro", "juan", "pepito", "Toni"]
+
+print( dic )
+
+cambiarClavesDic(dic, nombres)
+
+print( dic )
